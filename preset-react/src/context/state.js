@@ -24,8 +24,9 @@ const reducer = (state, action) => {
 
 export const State = (props) => {
   const [state, dispatch] = useReducer(reducer, {
-    colorValue: "",
-    numberValue: "",
+    colorValue:"",
+    numberValue:"",
+    arrayData:["1","2","3","4"]
   });
   return (
     <StateContext.Provider value={{ state, dispatch }}>

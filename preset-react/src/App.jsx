@@ -9,8 +9,8 @@ import {
   NavLink,
   Routes,
 } from "react-router-dom";
-import Home from "./views/home";
-import Login from "./views/login";
+import Home from "./views/home/home";
+import Login from "./views/login/login";
 function App(props) {
   return (
     <div>

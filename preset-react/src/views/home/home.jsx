@@ -1,25 +1,28 @@
 import React from "react";
-import API from "../http/api";
+import API from "../../http/api";
 import { useEffect, useState,useContext } from "react";
-import Child from "../components/Child";
-import WithRouterComponents from "../components/WithRouterComponents";
-import { StateContext } from "../context/state";
+import Child from "../../components/Child";
+import WithRouterComponents from "../../components/WithRouterComponents";
+import { StateContext } from "../../context/state";
+import styles from "./home.module.scss";
 export default function Home(props) {
   const { state,dispatch } = useContext(StateContext);
   useEffect(async () => {
     const res1 = await API.relicManage.getData();
-    console.log("管理信息模块中的数据结果", res1);
+    console.log("管理信息API模块中的数据结果", res1);
     const res2 = await API.user.userData();
-    console.log("用户信息模块中的数据结果", res2);
+    console.log("用户信息API模块中的数据结果", res2);
   }, []);
   useEffect(async () => {
     console.log("context中的默认值",state);
   }, [state]);
 
   const [params,setParams]=useState(null);
+
   const goToLoginPage = () => {
     props.history.push({pathname:'/login',state:{id:2190867637637}})
   };
+  
   const sendValue=(value)=>{
       console.log("formChildValue",value);
       setParams(value)
@@ -86,6 +89,9 @@ export default function Home(props) {
     //测试数据;
   return (
     <div>
+      <div className={styles.blockA}>
+        <div className={styles.blockB}></div>
+      </div>
       <h1>子组件传过来的参数:{params}</h1>
       <button
          style={{ width: 150, height: 100 }}

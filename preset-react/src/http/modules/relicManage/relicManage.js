@@ -1,5 +1,5 @@
 import axios from "axios"
-import "../../axios"
+// import "../../axios"
 export default {
     getData(){
         return axios({
